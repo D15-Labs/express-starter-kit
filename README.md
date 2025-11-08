@@ -1,6 +1,7 @@
 # Node Express SaaS Starter Kit
 
 [![CI](https://github.com/D15-Labs/express-starter-kit/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/D15-Labs/express-starter-kit/actions/workflows/ci.yml)
+[![GitHub stars](https://img.shields.io/github/stars/D15-Labs/express-starter-kit)](https://github.com/D15-Labs/express-starter-kit/stargazers)
 
 ```code
 Hey There!
@@ -78,11 +79,8 @@ type(scope): description
 
 Commits that don't follow the conventional format will be rejected. This ensures clean git history and enables automatic changelog generation.
 
+
 ## Getting Started
-
-### Video Demo
-
-For a visual guide, watch the [video demo](https://github.com/user-attachments/assets/b1698dac-d582-45a0-8d61-31131732b74e) to see the setup and running of the project.
 
 ### Step-by-Step Guide
 
