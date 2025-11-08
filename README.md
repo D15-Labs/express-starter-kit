@@ -1,6 +1,7 @@
 # Node Express SaaS Starter Kit
 
 [![CI](https://github.com/D15-Labs/express-starter-kit/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/D15-Labs/express-starter-kit/actions/workflows/ci.yml)
+[![GitHub stars](https://img.shields.io/github/stars/D15-Labs/express-starter-kit)](https://github.com/D15-Labs/express-starter-kit/stargazers)
 
 ```code
 Hey There!
@@ -36,6 +37,7 @@ This starter kit helps you:
 - Easy deployment: Ready for Docker containers
 - Input checking: Request validation using Zod
 - API browser: Interactive API docs with Swagger UI
+- Database ready: PostgreSQL integration with `pg-promise` for database operations
 - Commit standards: Conventional commits enforced with Husky and Commitlint
 
 ## Conventional Commits
@@ -79,10 +81,6 @@ Commits that don't follow the conventional format will be rejected. This ensures
 
 ## Getting Started
 
-### Video Demo
-
-For a visual guide, watch the [video demo](https://github.com/user-attachments/assets/b1698dac-d582-45a0-8d61-31131732b74e) to see the setup and running of the project.
-
 ### Step-by-Step Guide
 
 #### Step 1: Initial Setup
@@ -95,6 +93,35 @@ For a visual guide, watch the [video demo](https://github.com/user-attachments/a
 
 - Create `.env`: Copy `.env.template` to `.env`
 - Update `.env`: Fill in necessary environment variables
+
+#### Step 2.5: Database Setup
+
+This project uses PostgreSQL as the database. The database connection is configured using `pg-promise`.
+
+**Prerequisites:**
+
+- PostgreSQL 15+ installed and running locally
+- Database created for the application
+
+**Database Configuration:**
+
+- The `DATABASE_URL` in `.env` should use standard PostgreSQL connection string format:
+  ```
+  DATABASE_URL="postgres://username:password@localhost:5432/database_name"
+  ```
+- Example: `DATABASE_URL="postgres://d15labs@localhost:5432/express_starter"`
+
+**Database Connection:**
+
+- Database connection is established in `src/database/pgConnection.ts`
+- Import and use the `db` instance in your services:
+
+  ```typescript
+  import { db } from "@/database/pgConnection";
+
+  // Example query
+  const users = await db.any("SELECT * FROM users");
+  ```
 
 #### Step 3: Running the Project
 

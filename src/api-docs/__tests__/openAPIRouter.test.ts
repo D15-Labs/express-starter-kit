@@ -3,7 +3,7 @@ import request from "supertest";
 
 import { app } from "@/server";
 
-import { generateOpenAPIDocument } from "../openAPIDocumentGenerator";
+import { generateOpenAPIDocument } from "@/api-docs/openAPIDocumentGenerator";
 
 describe("OpenAPI Router", () => {
 	describe("Swagger JSON route", () => {
