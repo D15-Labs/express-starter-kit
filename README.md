@@ -117,7 +117,7 @@ This project uses PostgreSQL as the database. The database connection is configu
 - Import and use the `db` instance in your services:
 
   ```typescript
-  import { db } from "../database/pgConnection";
+  import { db } from "@/database/pgConnection";
 
   // Example query
   const users = await db.any("SELECT * FROM users");
