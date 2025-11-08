@@ -1,9 +1,9 @@
 {
-	"name": "express-typescript-boilerplate",
+	"name": "express-starter-kit",
 	"version": "1.0.14",
-	"description": "An Express boilerplate backend",
-	"author": "Edwin Hernandez",
-	"repository": "edwinhern/express-typescript-2024",
+	"description": "Node express SaaS starter kit with postgres",
+	"author": "D15 Labs (Pvt) Ltd",
+	"repository": "D15-Labs/express-starter-kit",
 	"license": "MIT",
 	"main": "index.ts",
 	"private": true,
