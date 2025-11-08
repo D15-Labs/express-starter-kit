@@ -79,7 +79,6 @@ type(scope): description
 
 Commits that don't follow the conventional format will be rejected. This ensures clean git history and enables automatic changelog generation.
 
-
 ## Getting Started
 
 ### Step-by-Step Guide
