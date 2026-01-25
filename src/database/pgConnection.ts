@@ -1,7 +1,10 @@
-import pgPromise from 'pg-promise';
-import { env } from '@/common/utils/envConfig';
+import 'dotenv/config';
+import { drizzle } from "drizzle-orm/node-postgres";
+import { Pool } from "pg";
 
-const pgp = pgPromise(/* options */);
-const db = pgp(env.DATABASE_URL);
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL!,
+});
+const db = drizzle({ client: pool });
 
 export { db };
