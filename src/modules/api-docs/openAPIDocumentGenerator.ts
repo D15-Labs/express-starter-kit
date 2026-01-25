@@ -2,7 +2,7 @@ import { OpenAPIRegistry, OpenApiGeneratorV3 } from "@asteasolutions/zod-to-open
 import { env } from "@/common/utils/envConfig";
 
 import { healthCheckRegistry } from "@/modules/healthCheck/healthCheckRouter";
-import { userRegistry } from "@/modules/user/userRouter";
+import { userRegistry } from "@/modules/user/user.route";
 
 export type OpenAPIDocument = ReturnType<OpenApiGeneratorV3["generateDocument"]>;
 
