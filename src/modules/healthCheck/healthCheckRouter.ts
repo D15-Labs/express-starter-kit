@@ -2,7 +2,7 @@ import { OpenAPIRegistry } from "@asteasolutions/zod-to-openapi";
 import express, { type Request, type Response, type Router } from "express";
 import { z } from "zod";
 
-import { createApiResponse } from "@/api-docs/openAPIResponseBuilders";
+import { createApiResponse } from "@/modules/api-docs/openAPIResponseBuilders";
 import { ServiceResponse } from "@/common/models/serviceResponse";
 
 export const healthCheckRegistry = new OpenAPIRegistry();
