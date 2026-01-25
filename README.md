@@ -1,16 +1,25 @@
 # Node Express SaaS Starter Kit
 
 [![CI](https://github.com/D15-Labs/express-starter-kit/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/D15-Labs/express-starter-kit/actions/workflows/ci.yml)
-[![GitHub stars](https://img.shields.io/github/stars/D15-Labs/express-starter-kit)](https://github.com/D15-Labs/express-starter-kit/stargazers)
+[![GitHub stars](https://img.shields.io/github/stargazers/D15-Labs/express-starter-kit)](https://github.com/D15-Labs/express-starter-kit/stargazers)
+[![Use this template](https://img.shields.io/badge/Use%20this%20template-2ea44f)](https://github.com/D15-Labs/express-starter-kit/generate)
 
 ```code
 Hey There!
-that star button if you like this boilerplate.
+Click that star button if you like this boilerplate.
 ```
 
 ## Introduction
 
 Welcome to Node Express SaaS Starter Kit – a simple and ready-to-use starting point for building backend web services with Express.js and TypeScript.
+
+## Quick Start
+
+1. Click the **"Use this template"** button above to create a new repository
+2. Clone your new repository
+3. Install dependencies: `pnpm install`
+4. Copy `.env.template` to `.env` and configure your environment
+5. Start development: `pnpm dev`
 
 ## Features
 
@@ -39,10 +48,6 @@ For detailed setup instructions, including prerequisites, installation, environm
 - [Code of Conduct](CODE_OF_CONDUCT.md)
 - [License](LICENSE)
 - [Funding](.github/FUNDING.yml)
-
-## Credits
-
-This starter kit is based on the original [Express TypeScript Boilerplate](https://github.com/edwinhern/express-typescript) by Edwin Hernandez. Check out the original project and support the creator!
 
 ## Feedback and Contributions
 
