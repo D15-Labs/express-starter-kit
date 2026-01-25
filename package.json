@@ -7,6 +7,9 @@
 	"license": "MIT",
 	"main": "index.ts",
 	"private": true,
+	"commitlint": {
+		"extends": ["@commitlint/config-conventional"]
+	},
 	"scripts": {
 		"build": "tsc && tsup",
 		"dev": "node --import=tsx --watch src/index.ts",
