@@ -14,10 +14,6 @@ const envSchema = z.object({
 
 	CORS_ORIGIN: z.string().default("http://localhost:8080"),
 
-	COMMON_RATE_LIMIT_MAX_REQUESTS: z.coerce.number().int().positive().default(1000),
-
-	COMMON_RATE_LIMIT_WINDOW_MS: z.coerce.number().int().positive().default(1000),
-
 	DATABASE_URL: z.string().min(1).default("postgres://username:password@localhost:5432/database"),
 });
 
