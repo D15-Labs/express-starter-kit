@@ -1,4 +1,4 @@
-import type { User } from "@/api/user/userModel";
+import type { User } from "@/modules/user/userModel";
 
 export const users: User[] = [
 	{
