@@ -1,13 +1,11 @@
 # Node Express SaaS Starter Kit
 
 [![CI](https://github.com/D15-Labs/express-starter-kit/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/D15-Labs/express-starter-kit/actions/workflows/ci.yml)
-[![GitHub stars](https://img.shields.io/github/stargazers/D15-Labs/express-starter-kit)](https://github.com/D15-Labs/express-starter-kit/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/D15-Labs/express-starter-kit)](https://github.com/D15-Labs/express-starter-kit/stargazers)
 [![Use this template](https://img.shields.io/badge/Use%20this%20template-2ea44f)](https://github.com/D15-Labs/express-starter-kit/generate)
 
-```code
 Hey There!
 Click that star button if you like this boilerplate.
-```
 
 ## Introduction
 
@@ -53,4 +51,5 @@ For detailed setup instructions, including prerequisites, installation, environm
 
 We'd love to hear your feedback and suggestions for further improvements. Feel free to contribute and join us in making backend development cleaner and faster!
 
-Happy coding!
+[D15 Labs Dev Team](https://www.d15labs.com)
+
