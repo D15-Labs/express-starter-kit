@@ -1,5 +1,5 @@
 import type { Request } from "express";
-import { rateLimit } from "express-rate-limit";
+import { ipKeyGenerator, rateLimit } from "express-rate-limit";
 
 import { env } from "@/common/utils/envConfig";
 
@@ -9,7 +9,7 @@ const rateLimiter = rateLimit({
 	message: "Too many requests, please try again later.",
 	standardHeaders: true,
 	windowMs: 15 * 60 * env.COMMON_RATE_LIMIT_WINDOW_MS,
-	keyGenerator: (req: Request) => req.ip as string,
+	keyGenerator: (req) => ipKeyGenerator(req.ip || req.socket?.remoteAddress || '127.0.0.1', 64),
 });
 
 export default rateLimiter;
