@@ -1,4 +1,4 @@
-import type { User } from "@/modules/user/userModel";
+import type { User } from "@/modules/user/user.model";
 
 export const users: User[] = [
 	{

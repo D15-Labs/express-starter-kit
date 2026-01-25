@@ -1,6 +1,6 @@
 import type { Request, RequestHandler, Response } from "express";
 
-import { userService } from "@/modules/user/userService";
+import { userService } from "@/modules/user/user.service";
 
 class UserController {
 	public getUsers: RequestHandler = async (_req: Request, res: Response) => {

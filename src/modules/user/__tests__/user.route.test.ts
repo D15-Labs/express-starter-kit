@@ -1,8 +1,8 @@
 import { StatusCodes } from "http-status-codes";
 import request from "supertest";
 
-import type { User } from "@/modules/user/userModel";
-import { users } from "@/modules/user/userRepository";
+import type { User } from "@/modules/user/user.model";
+import { users } from "@/modules/user/user.repository";
 import type { ServiceResponse } from "@/common/models/serviceResponse";
 import { app } from "@/server";
 
