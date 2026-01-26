@@ -42,29 +42,39 @@ Before you begin, ensure you have the following installed:
 ### Installation
 
 1. Install dependencies:
+
    ```bash
    pnpm install
    ```
 
 2. Set up environment variables:
+
    ```bash
    cp .env.template .env
    # Edit .env with your configuration
    ```
 
 3. Set up the database:
+
    ```bash
    # Install PostgreSQL and create a database
    createdb express_starter
+
+   # Run database migrations
+   pnpm migrate
    ```
 
 ### Running the Application
 
-- **Development mode**: `pnpm start:dev`
+- **Development mode**: `pnpm dev`
 - **Production build**: `pnpm build`
 - **Run tests**: `pnpm test`
-- **Lint code**: `pnpm lint`
-- **Format code**: `pnpm format`
+- **Database migrations**:
+  - Run all pending migrations: `pnpm migrate`
+  - Rollback last migration: `pnpm migrate:down`
+  - Create new migration: `pnpm migrate:create <migration-name>`
+- **Lint code**: `pnpm check`
+- **Format code**: `pnpm check`
 
 ## Code Standards
 
@@ -83,12 +93,13 @@ Before you begin, ensure you have the following installed:
 - Remove unused imports
 
 Example:
-```typescript
-import express from 'express';
-import { z } from 'zod';
 
-import { env } from '@/common/utils/envConfig';
-import { userRouter } from '@/api/user/userRouter';
+```typescript
+import express from "express";
+import { z } from "zod";
+
+import { env } from "@/common/utils/envConfig";
+import { userRouter } from "@/api/user/userRouter";
 ```
 
 ### File Structure
@@ -121,14 +132,15 @@ pnpm test:coverage
 - Aim for good test coverage
 
 Example test structure:
+
 ```typescript
-describe('User Service', () => {
-  describe('getUserById', () => {
-    it('should return user when found', async () => {
+describe("User Service", () => {
+  describe("getUserById", () => {
+    it("should return user when found", async () => {
       // Test implementation
     });
 
-    it('should return null when user not found', async () => {
+    it("should return null when user not found", async () => {
       // Test implementation
     });
   });
@@ -177,6 +189,7 @@ Commits that don't follow the conventional format will be rejected. This ensures
 ## Pull Request Process
 
 1. **Create a feature branch** from `main`:
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
@@ -186,6 +199,7 @@ Commits that don't follow the conventional format will be rejected. This ensures
 3. **Write tests** for your changes
 
 4. **Run the full test suite**:
+
    ```bash
    pnpm test
    pnpm lint
@@ -196,6 +210,7 @@ Commits that don't follow the conventional format will be rejected. This ensures
 6. **Commit your changes** using conventional commit format
 
 7. **Push your branch**:
+
    ```bash
    git push origin feature/your-feature-name
    ```
