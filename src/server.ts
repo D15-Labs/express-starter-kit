@@ -2,12 +2,11 @@ import cors from "cors";
 import express, { type Express } from "express";
 import helmet from "helmet";
 import { pino } from "pino";
-import { healthCheckRouter } from "@/modules/healthCheck/healthCheckRouter";
-import { userRouter } from "@/modules/user/userRouter";
 import { openAPIRouter } from "@/modules/api-docs/openAPIRouter";
 import errorHandler from "@/common/middleware/errorHandler";
 import requestLogger from "@/common/middleware/requestLogger";
 import { env } from "@/common/utils/envConfig";
+import { setupRoutes } from "@/routes";
 
 const logger = pino({ name: "server start" });
 const app: Express = express();
@@ -25,8 +24,7 @@ app.use(helmet());
 app.use(requestLogger);
 
 // Routes
-app.use("/health-check", healthCheckRouter);
-app.use("/users", userRouter);
+setupRoutes(app);
 
 // Swagger UI
 app.use("/api-docs", openAPIRouter);
