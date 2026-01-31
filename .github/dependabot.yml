@@ -1,0 +1,70 @@
+# Dependabot configuration for automated dependency updates
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  # Enable version updates for npm dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/Chicago"
+    # Group all non-major updates together to reduce PR noise
+    groups:
+      all-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+      typescript:
+        patterns:
+          - "typescript"
+          - "@types/*"
+          - "ts-*"
+      testing:
+        patterns:
+          - "vitest"
+          - "@vitest/*"
+          - "supertest"
+          - "@types/supertest"
+      biome:
+        patterns:
+          - "@biomejs/biome"
+    labels:
+      - "dependencies"
+    # Limit the number of open pull requests for version updates
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "⬆️"
+      include: "scope"
+
+  # Enable version updates for Docker
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/Chicago"
+    labels:
+      - "dependencies"
+      - "docker"
+    commit-message:
+      prefix: "⬆️"
+      include: "scope"
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/Chicago"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "⬆️"
+      include: "scope"
