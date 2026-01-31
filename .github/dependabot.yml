@@ -11,26 +11,47 @@ updates:
       day: "monday"
       time: "09:00"
       timezone: "America/Chicago"
-    # Group all non-major updates together to reduce PR noise
+    # Group dependencies to reduce PR noise
+    # Pattern-based groups take precedence over update-type groups
     groups:
-      all-minor-patch:
-        update-types:
-          - "minor"
-          - "patch"
       typescript:
         patterns:
           - "typescript"
           - "@types/*"
           - "ts-*"
+        update-types:
+          - "minor"
+          - "patch"
       testing:
         patterns:
           - "vitest"
           - "@vitest/*"
           - "supertest"
           - "@types/supertest"
+        update-types:
+          - "minor"
+          - "patch"
       biome:
         patterns:
           - "@biomejs/biome"
+        update-types:
+          - "minor"
+          - "patch"
+      all-minor-patch:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "typescript"
+          - "@types/*"
+          - "ts-*"
+          - "vitest"
+          - "@vitest/*"
+          - "supertest"
+          - "@types/supertest"
+          - "@biomejs/biome"
+        update-types:
+          - "minor"
+          - "patch"
     labels:
       - "dependencies"
     # Limit the number of open pull requests for version updates
