@@ -57,7 +57,7 @@ updates:
     # Limit the number of open pull requests for version updates
     open-pull-requests-limit: 10
     commit-message:
-      prefix: "⬆️"
+      prefix: "chore(deps)"
       include: "scope"
 
   # Enable version updates for Docker
@@ -72,7 +72,7 @@ updates:
       - "dependencies"
       - "docker"
     commit-message:
-      prefix: "⬆️"
+      prefix: "chore(deps)"
       include: "scope"
 
   # Enable version updates for GitHub Actions
@@ -87,5 +87,5 @@ updates:
       - "dependencies"
       - "github-actions"
     commit-message:
-      prefix: "⬆️"
+      prefix: "chore(deps)"
       include: "scope"
