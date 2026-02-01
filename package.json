@@ -1,6 +1,6 @@
 {
 	"name": "express-starter-kit",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"description": "Node express SaaS starter kit with postgres",
 	"author": "D15 Labs (Pvt) Ltd",
 	"repository": "D15-Labs/express-starter-kit",
