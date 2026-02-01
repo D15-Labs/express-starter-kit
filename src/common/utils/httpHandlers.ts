@@ -6,21 +6,40 @@ import { ServiceResponse } from "@/common/models/serviceResponse";
 
 export const validateRequest = (schema: ZodSchema) => async (req: Request, res: Response, next: NextFunction) => {
 	try {
-		await schema.parseAsync({ body: req.body, query: req.query, params: req.params });
+		req.body = schema.parse(req.body);
 		next();
 	} catch (err) {
-		const errors = (err as ZodError).errors.map((e) => {
-			const fieldPath = e.path.length > 0 ? e.path.join(".") : "root";
-			return `${fieldPath}: ${e.message}`;
-		});
-
-		const errorMessage =
-			errors.length === 1
-				? `Invalid input: ${errors[0]}`
-				: `Invalid input (${errors.length} errors): ${errors.join("; ")}`;
-
+		const error = err as ZodError;
 		const statusCode = StatusCodes.BAD_REQUEST;
-		const serviceResponse = ServiceResponse.failure(errorMessage, null, statusCode);
+		const serviceResponse = ServiceResponse.failure(`Validation error: ${error.message}`, null, statusCode);
 		res.status(serviceResponse.statusCode).send(serviceResponse);
 	}
+};
+
+declare global {
+	namespace Express {
+		interface Request {
+			parsedId?: number;
+		}
+	}
+}
+
+export const validateIdParam = (paramName = "id") => async (req: Request, res: Response, next: NextFunction) => {
+	const id = req.params[paramName];
+	const parsedId = Number.parseInt(id, 10);
+
+	if (Number.isNaN(parsedId) || parsedId <= 0) {
+		const statusCode = StatusCodes.BAD_REQUEST;
+		const serviceResponse = ServiceResponse.failure(
+			`Validation error: Invalid ${paramName} format. Must be a positive integer.`,
+			null,
+			statusCode,
+		);
+		res.status(serviceResponse.statusCode).send(serviceResponse);
+		return;
+	}
+
+	// Add the parsed ID to the request for easier access
+	req.parsedId = parsedId;
+	next();
 };

@@ -8,17 +8,18 @@
 	"main": "index.ts",
 	"private": true,
 	"commitlint": {
-		"extends": [
-			"@commitlint/config-conventional"
-		]
+		"extends": ["@commitlint/config-conventional"]
 	},
 	"scripts": {
 		"build": "tsc && tsup",
-		"dev": "node --import=tsx --watch src/index.ts",
+		"dev": "nodemon src/index.ts",
 		"start:prod": "node dist/index.js",
 		"check": "biome check --write",
 		"test": "vitest run",
 		"test:cov": "vitest run --coverage",
+		"migrate": "node-pg-migrate up --migrations-dir src/database/migrations --tsx",
+		"migrate:down": "node-pg-migrate down --migrations-dir src/database/migrations --tsx",
+		"migrate:create": "node-pg-migrate create --migrations-dir src/database/migrations --migration-file-language ts --tsx",
 		"prepare": "husky"
 	},
 	"dependencies": {
@@ -55,14 +56,9 @@
 		"vitest": "3.2.4"
 	},
 	"tsup": {
-		"entry": [
-			"src/index.ts"
-		],
+		"entry": ["src/index.ts"],
 		"outDir": "dist",
-		"format": [
-			"esm",
-			"cjs"
-		],
+		"format": ["esm", "cjs"],
 		"target": "es2020",
 		"sourcemap": true,
 		"clean": true,
