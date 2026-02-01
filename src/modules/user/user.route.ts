@@ -2,10 +2,10 @@ import { OpenAPIRegistry } from "@asteasolutions/zod-to-openapi";
 import express, { type Router } from "express";
 import { z } from "zod";
 
-import { validateRequest } from "@/common/utils/httpHandlers";
+import { validateIdParam, validateRequest } from "@/common/utils/httpHandlers";
 import { createApiResponse } from "@/modules/api-docs/openAPIResponseBuilders";
 import { userController } from "@/modules/user/user.controller";
-import { UserResponseDtoSchema, CreateUserDtoSchema, UpdateUserDtoSchema } from "@/modules/user/user.dto";
+import { CreateUserDtoSchema, UpdateUserDtoSchema, UserResponseDtoSchema } from "@/modules/user/user.dto";
 
 export const userRegistry = new OpenAPIRegistry();
 export const userRouter: Router = express.Router();
@@ -28,7 +28,7 @@ userRegistry.registerPath({
 	responses: createApiResponse(UserResponseDtoSchema, "Success"),
 });
 
-userRouter.get("/:id", userController.getUserById.bind(userController));
+userRouter.get("/:id", validateIdParam(), userController.getUserById.bind(userController));
 
 // Create user
 userRegistry.registerPath({
@@ -66,7 +66,12 @@ userRegistry.registerPath({
 	responses: createApiResponse(UserResponseDtoSchema, "Success"),
 });
 
-userRouter.put("/:id", validateRequest(UpdateUserDtoSchema), userController.updateUser.bind(userController));
+userRouter.put(
+	"/:id",
+	validateIdParam(),
+	validateRequest(UpdateUserDtoSchema),
+	userController.updateUser.bind(userController),
+);
 
 // Delete user
 userRegistry.registerPath({
@@ -76,4 +81,4 @@ userRegistry.registerPath({
 	responses: createApiResponse(z.null(), "Success"),
 });
 
-userRouter.delete("/:id", userController.deleteUser.bind(userController));
+userRouter.delete("/:id", validateIdParam(), userController.deleteUser.bind(userController));
