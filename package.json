@@ -31,7 +31,7 @@
 		"pg": "^8.17.2",
 		"pg-promise": "^12.2.0",
 		"pino": "10.3.0",
-		"pino-http": "10.5.0",
+		"pino-http": "11.0.0",
 		"swagger-ui-express": "5.0.1",
 		"zod": "3.25.76"
 	},
