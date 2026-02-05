@@ -25,7 +25,7 @@ declare global {
 }
 
 export const validateIdParam = (paramName = "id") => async (req: Request, res: Response, next: NextFunction) => {
-	const id = req.params[paramName];
+	const id = Array.isArray(req.params[paramName]) ? req.params[paramName][0] : req.params[paramName];
 	const parsedId = Number.parseInt(id, 10);
 
 	if (Number.isNaN(parsedId) || parsedId <= 0) {
