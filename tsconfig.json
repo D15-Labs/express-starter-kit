@@ -1,12 +1,12 @@
 {
 	"compilerOptions": {
-		"target": "ESNext",
-		"module": "Node16",
+		"target": "ES2023",
+		"module": "NodeNext",
 		"baseUrl": "./src",
 		"paths": {
 			"@/*": ["*"]
 		},
-		"moduleResolution": "node16",
+		"moduleResolution": "NodeNext",
 		"outDir": "dist",
 		"importsNotUsedAsValues": "remove",
 		"strict": true,
