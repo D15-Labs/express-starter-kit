@@ -67,7 +67,7 @@ describe("User API endpoints", () => {
 			expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
 			expect(result.success).toBeFalsy();
 			expect(result.message).toContain("Validation error");
-			expect(result.message).toContain("Required");
+			expect(result.message).toContain("expected string");
 		});
 	});
 
